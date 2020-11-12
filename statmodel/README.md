@@ -1,4 +1,4 @@
-# Statistical modelling of sampling 
+# Statistical modelling of sampling precision
 
 Let's iteratively draw random numbers from a Normal distribution with parameters (mean *m*, standard deviation *s*) until the distance between the average of the drawn numbers (sample) and its expected average (the mean *m*) falls bellow a certain threshold called "precision".
 
