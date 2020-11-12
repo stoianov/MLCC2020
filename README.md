@@ -6,7 +6,7 @@ Lecturer: stoianov.unipd@gmail.com (please use this email for communications wit
 
 Content:
 
-- implementation of a [basic statistical model](https://github.com/stoianov/MLCC2020/statmodel/)
+- implementation of a [basic statistical model](https://github.com/stoianov/MLCC2020/statmodel/samplingsize_prec.m)
 
 #Prerequisites
 
