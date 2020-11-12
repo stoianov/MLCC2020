@@ -1,9 +1,7 @@
-# Statistical modelling of sample size
+# Statistical modelling of sampling 
 
-Let's make *n* random draws (a sample) from a Normal distribution with parameters mean *m* and standard deviation *s*.
+Let's iteratively draw random numbers from a Normal distribution with parameters (mean *m*, standard deviation *s*) until the distance between the average of the drown numbers (sample) and its expected average (the mean *m*) falls bellow a certain threshold called "precision".
 
-Let's call *error* (or "precision") the distance *e* between the average of the sample and its expected average, which is the mean *m*.
+- Investigate the potential link between sample size and precision.
 
-- Investigate the link between sample size and error.
-
-- Investigate the link between sample size and the parameter st.deviation *s* of the Normal distribution. 
+- Investigate the link between sample size and the parameter st.dev. *s* of the Normal distribution. 
