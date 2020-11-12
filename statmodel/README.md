@@ -6,4 +6,4 @@ Let's call *error* (or "precision") the distance *e* between the average of the 
 
 - Investigate the link between sample size and error.
 
-- Investigate the link between sample size and st.deviation. 
+- Investigate the link between sample size and the parameter st.deviation *s* of the Normal distribution. 
