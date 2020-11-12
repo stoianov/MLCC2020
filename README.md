@@ -8,5 +8,5 @@ Content:
 
 - implementation of a basic statistical model
 
-##Prerequisites
+#Prerequisites
 Minimal knowledge of Matlab and basic math 
