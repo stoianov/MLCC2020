@@ -1,6 +1,6 @@
 # Statistical modelling of sampling 
 
-Let's iteratively draw random numbers from a Normal distribution with parameters (mean *m*, standard deviation *s*) until the distance between the average of the drown numbers (sample) and its expected average (the mean *m*) falls bellow a certain threshold called "precision".
+Let's iteratively draw random numbers from a Normal distribution with parameters (mean *m*, standard deviation *s*) until the distance between the average of the drawn numbers (sample) and its expected average (the mean *m*) falls bellow a certain threshold called "precision".
 
 - Investigate the potential link between sample size and precision.
 
