@@ -7,6 +7,7 @@ Lecturer: stoianov.unipd@gmail.com (please use this email for communications wit
 Content:
 
 - implementation of a [basic statistical model](https://github.com/stoianov/MLCC2020/tree/main/statmodel/)
+- implementation of a [2-layer MLP](https://github.com/stoianov/MLCC2020/tree/main/mlp/)
 
 #Prerequisites
 
