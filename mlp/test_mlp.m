@@ -21,47 +21,48 @@ fprintf('error Untrained = %.3f  Trained %.3f \n',merr0,merr1);
 
 %% Graphical analysis
 h_fg=figure(1); clf reset;  
+% Set figure size and other params to make it redy for saving as image file
 set(h_fg,'Position',[100,900,1200,700],'Renderer','zbuffer','Color',[1 1 1],'PaperPositionMode', 'auto');
 
 % FUNCTION
 subplot(2,3,1);   
-plot3(X(:,1),X(:,2),T,'.');			
+plot3(X(:,1),X(:,2),T,'.');	    % 3D Plot of target function 
 zlim([0 1]);
 title('Y=F(X)');
 
 subplot(2,3,2);   
-plot3(X(:,1),X(:,2),Y0,'r.');    % Error untrained			
+plot3(X(:,1),X(:,2),Y0,'r.');   % 3D Plot of response of untrained network			
 zlim([0 1]);
 title('Untrained N(X)');
 
 subplot(2,3,3);   
-plot3(X(:,1),X(:,2),Y1,'g.');    % Error trained		
+plot3(X(:,1),X(:,2),Y1,'g.');   % 3D plot of response of trained network		
 zlim([0 1]);
 title('Trained N(X)');
 
 % ERROR
 subplot(2,3,4);             
-plot(N.E,'k','LineWidth',3);
+plot(N.E,'k','LineWidth',3);    % Error during learning
 xlabel('Epoch');
 ylabel('error');
 title('Leaning Error');
 
-subplot(2,3,5);             % divide fig in 2 panels; select the 1st panel
-plot(X,Difference0,'r.');	% plot target vs untrained (as dots)
+subplot(2,3,5);  
+plot(X,Difference0,'r.');	  % plot target vs untrained (as dots)
 axis equal;                 % use same scale for absc and ordinate
 xlim([0 1]);ylim([0 1]);
 xlabel('Target F(x)'); 
 ylabel('N(x)');
 title(sprintf('Untrained: Residuals m=%.3f',merr0));
 
-subplot(2,3,6);             % divide and select the 2nd panel
-plot(X,Difference1,'g.');	% plot targets vs trained (as dots)
+subplot(2,3,6);             
+plot(X,Difference1,'g.');	  % plot targets vs trained (as dots)
 axis equal;
 xlim([0 1]);ylim([0 1]);
 xlabel('Target F(x)'); 
 ylabel('N(x)');
 title(sprintf('Trained: residuals m=%.3f',merr1));
 
-% Store fig as PNG
+% Store fig as PNG image file
 print(h_fg,'-dpng','-painters','-r100','Test-MLP.png');
 
