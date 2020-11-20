@@ -11,8 +11,8 @@ N = mlp_train(N,X,T,10000);
 Y1 = mlp_activate(N,X);
 
 %% DIAGNOSTICS
-Difference0=abs(T-Y0);		% untrained
-Difference1=abs(T-Y1);		% trained
+Residuals0=abs(T-Y0);		% untrained
+Residuals1=abs(T-Y1);		% trained
 
 % Numerical output
 merr0=mean(abs(Difference0)); 	% average error untrained
@@ -26,7 +26,7 @@ set(h_fg,'Position',[100,900,1200,700],'Renderer','zbuffer','Color',[1 1 1],'Pap
 
 % FUNCTION
 subplot(2,3,1);   
-plot3(X(:,1),X(:,2),T,'.');	    % 3D Plot of target function 
+plot3(X(:,1),X(:,2),T,'.');	% 3D Plot of target function 
 zlim([0 1]);
 title('Y=F(X)');
 
@@ -48,15 +48,15 @@ ylabel('error');
 title('Leaning Error');
 
 subplot(2,3,5);  
-plot(X,Difference0,'r.');	  % plot target vs untrained (as dots)
-axis equal;                 % use same scale for absc and ordinate
+plot(X,Difference0,'r.');	% plot target vs untrained (as dots)
+axis equal;                 	% use same scale for absc and ordinate
 xlim([0 1]);ylim([0 1]);
 xlabel('Target F(x)'); 
 ylabel('N(x)');
 title(sprintf('Untrained: Residuals m=%.3f',merr0));
 
 subplot(2,3,6);             
-plot(X,Difference1,'g.');	  % plot targets vs trained (as dots)
+plot(X,Difference1,'g.');	% plot targets vs trained (as dots)
 axis equal;
 xlim([0 1]);ylim([0 1]);
 xlabel('Target F(x)'); 
