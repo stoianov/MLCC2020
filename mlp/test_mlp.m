@@ -1,13 +1,13 @@
 % MLP as universal function approximator
 
 % DATA
-X=rand(2000,2);                       % X [ 0...1 , 0...1 ]
-T=(X(:,1)-0.5).^2 + (X(:,2)-0.5).^2; % F(x) quadratic function
+X=rand(1000,2);                       % X [ 0...1 , 0...1 ]
+T=((X(:,1)-0.5).^2 + (X(:,2)-0.5).^2)*2; % F(x) quadratic function. F(x)=[0..1]                                
 
 %% MODEL
 N = mlp_init([2 30 1]); 
 Y0 = mlp_activate(N,X);
-N = mlp_train(N,X,T,10000);
+N = mlp_train(N,X,T,5000);
 Y1 = mlp_activate(N,X);
 
 %% DIAGNOSTICS
@@ -15,8 +15,8 @@ Residuals0=abs(T-Y0);		% untrained
 Residuals1=abs(T-Y1);		% trained
 
 % Numerical output
-merr0=mean(abs(Difference0)); 	% average error untrained
-merr1=mean(abs(Difference1));	% average error trained
+merr0=mean(abs(Residuals0)); 	% average error untrained
+merr1=mean(abs(Residuals1));	% average error trained
 fprintf('error Untrained = %.3f  Trained %.3f \n',merr0,merr1);
 
 %% Graphical analysis
@@ -48,18 +48,18 @@ ylabel('error');
 title('Leaning Error');
 
 subplot(2,3,5);  
-plot(X,Difference0,'r.');	% plot target vs untrained (as dots)
+plot(X,Residuals0,'r.');	% plot target vs untrained (as dots)
 axis equal;                 	% use same scale for absc and ordinate
 xlim([0 1]);ylim([0 1]);
-xlabel('Target F(x)'); 
+xlabel('X(1)'); 
 ylabel('N(x)');
 title(sprintf('Untrained: Residuals m=%.3f',merr0));
 
 subplot(2,3,6);             
-plot(X,Difference1,'g.');	% plot targets vs trained (as dots)
+plot(X,Residuals1,'g.');	% plot targets vs trained (as dots)
 axis equal;
 xlim([0 1]);ylim([0 1]);
-xlabel('Target F(x)'); 
+xlabel('X(1)'); 
 ylabel('N(x)');
 title(sprintf('Trained: residuals m=%.3f',merr1));
 

@@ -8,7 +8,9 @@ Content:
 
 - implementation of a [basic statistical model](https://github.com/stoianov/MLCC2020/tree/main/statmodel/)
 - implementation of a [2-layer MLP](https://github.com/stoianov/MLCC2020/tree/main/mlp/)
+- implementation of [digit perception](https://github.com/stoianov/MLCC2020/tree/main/digits/)
 
 #Prerequisites
 
 Minimal knowledge of Matlab and basic math 
+
