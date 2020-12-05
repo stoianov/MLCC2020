@@ -32,6 +32,6 @@ D.Ite=Ite;
 D.Iva=Iva;
 D.ntr=numel(D.Itr);                   % Size of those subsets
 D.nte=numel(D.Ite);
-D.nva=numel(D.Iva;)
+D.nva=numel(D.Iva);
 
 end

@@ -5,8 +5,13 @@
 
 function N=mlp_init(sz,par)
 if nargin<2,                    % Default learning parameters
-  par.lc=0.03; par.mc=0.8; par.wsd=0.1; 
+  par.lc=0.03; 
+  par.mc=0.8; 
+  par.wsd=0.1; 
+  par.fun={'same','sig','sig'}; % activation functions
 end
+
+N.par=par;
 N.sz=sz;                        % network size (we expect 3 layers)
 N.nlayers = numel(sz);          % the total number of the layers (including inp and out)
 N.lc=par.lc;                    % learning coefficient
@@ -18,9 +23,11 @@ N.E=[];                         % keep history of learing error
 
 N.hw=randn(sz(1),sz(2))*N.wsd;  % random weights of the hidden layer (n-inp x n-hid)
 N.hb=zeros(1,sz(2));           	% null bias
+N.hfun=par.fun{2};              % hidden-layer activation funtction 
 
 N.ow=randn(sz(2),sz(3))*N.wsd;  % random weights of the ouput layer (n-hid x n-out)
 N.ob=zeros(1,sz(3));           	% null bias of output units
+N.ofun=par.fun{3};              % output activation funtction
 
 N.dhw=zeros(size(N.hw));
 N.dhb=zeros(size(N.hb));

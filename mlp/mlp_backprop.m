@@ -5,10 +5,15 @@ function N=mlp_backprop(N,X,T)
  lc=N.lc;                       % Learning coefficient
  mc=N.mc;                       % Momentum coefficient
  
+ if isfield(N.par,'trnoise')                   
+   G=randn(size(X))*N.par.trnoise;% gaussian noise
+   X=max(0,min(1,X+G));         % rectify
+ end
+ 
  [Y, H]=mlp_activate(N,X);      % Activate the MLP on data
  
  oE=T-Y;                        % Errors at the output layer 
- dY = oE.*Y.*(1-Y);             % Deltas at the output layer
+ dY = oE.*df(Y,N.ofun);         % Deltas at the output layer
  dW = (H'*dY);                  % Weight change
  dB = sum(dY);                  % change of bias
   
@@ -19,7 +24,7 @@ function N=mlp_backprop(N,X,T)
  N.ob = N.ob + lc * N.dob;      % ob  [1 ,no]
  
  hE=(dY*N.ow');                 % Errors at the hidden layer (propoagated from top layer)
- dY = hE.*H.*(1-H);             % Deltas at the hidden layer  
+ dY = hE.*df(H,N.hfun);         % Deltas at the hidden layer  
  dW = (X'*dY);                  % Weigh changes 
  dB = sum(dY);                  % change of bias
  
@@ -33,4 +38,11 @@ function N=mlp_backprop(N,X,T)
  N.lepochs=N.lepochs+1;         % Add the number of epochs so far
  N.lpatterns=N.lpatterns+size(X,1); % Total number of learning patterns
 
+end
+
+function dY=df(Y,f)
+  switch f
+    case 'sig', dY=Y.*(1-Y);    % Sigmoid
+    case 'rlu', dY=double(Y>0);       % RLU: 1 for positives, 0 otherwise
+  end
 end
