@@ -1,6 +1,7 @@
 % profile the effect of added pixel noise on classification accuracy
 
-function noise_profile(NN,D)
+function noise_profile(NN,D,fig)
+if nargin<3, fig=21; end
 I=D.Iva;                        % Set to use for the analysis
 X=D.IMG(I,:);                   % Let's use the validation image set
 T=D.Num(I);                     % The categories on that set
@@ -9,7 +10,7 @@ sd=0:0.05:0.3;                  % levels of st.dev. of noise
 nlev=numel(sd);
 ACnoise=nan(1,nlev);            % storage for the profile
 
-figure(21);                     % Sample images
+figure(20);                     % Sample images
 for i=1:nlev                    % for each level of the noise condition 
   G=randn(size(X))*sd(i);       % draw Gaussian noise for each pixel of each image
   XG=max(0,min(1,X+G));         % Rectified noise-added image
@@ -23,7 +24,7 @@ for i=1:nlev                    % for each level of the noise condition
   title(sprintf('Noise %.2f',sd(i)));
 end
 
-figure(22);
+figure(fig);
 plot(sd,ACnoise);
 title('Effect of noise');
 xlabel('Noise (st.dev.)'); ylabel('Accuracy');

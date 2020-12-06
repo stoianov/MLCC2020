@@ -1,6 +1,7 @@
 % profile the effect of image rotation on classification accuracy
 
-function rotation_profile(NN,D)
+function rotation_profile(NN,D,fig)
+if nargin<3, fig=31; end
 I=D.Iva;                        % Set to use for the analysis
 X=D.IMG(I,:);                   % Let's use the validation image set
 T=D.Num(I);                     % The categories on that set
@@ -25,7 +26,7 @@ for i=1:nsc
     title(sprintf('Theta %.0f',Asc(i)));
 end
 
-figure(2);
+figure(fig);
 plot(Asc,ACrot); xlim([-50 50]); ylim([0.5 1]);
 title('Effect of digit rotation');
 xlabel('Rotation (degr)'); ylabel('Accuracy');

@@ -1,6 +1,7 @@
 % Investigate the effect of image contrast on classification accuracy
 
-function contrast_profile(NN,D)
+function contrast_profile(NN,D,fig)
+if nargin<3, fig=11; end
 I=D.Iva;                        % Set to use for the analysis
 X=D.IMG(I,:);                   % Let's use the validation image set
 T=D.Num(I);                     % The categories on that set
@@ -25,7 +26,7 @@ for i=1:nsc
     title(sprintf('Contrast %.1f',Csc(i)));
 end
 
-figure(11);
+figure(fig);
 plot(Csc,ACcon);
 title('Effect of contrast');
 xlabel('Contrast'); ylabel('Accuracy');
