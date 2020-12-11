@@ -5,7 +5,7 @@ X=rand(1000,2);                       % X [ 0...1 , 0...1 ]
 T=((X(:,1)-0.5).^2 + (X(:,2)-0.5).^2)*2; % F(x) quadratic function. F(x)=[0..1]                                
 
 %% MODEL
-N = mlp_init([2 30 1]); 
+N = mlp([2 30 1]); 
 Y0 = mlp_activate(N,X);
 N = mlp_train(N,X,T,5000);
 Y1 = mlp_activate(N,X);
