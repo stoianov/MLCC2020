@@ -4,7 +4,7 @@
 % Output: Y, matrix with 10 collumns with orthgonal (one-hot) coding of each digit in X
 
 function Y=digit2onehot(X)
-eps=0.1;                % stay away from 0 and 1 for sigm act funct
+eps=0.0;                % stay away from 0 and 1 for sigm act funct
 n=numel(X);             % number of data patterns
 Y=zeros(n,10)+eps;      % array for the one-hot code
 for i=1:n

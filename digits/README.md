@@ -20,12 +20,12 @@
   - shows the unit weights as images *plot_hweights(NN)*, *plot_oweights(NN)* to allow inside visual analysis of the network computations.
 
 
-## training profile
-![sample training](fig/sample_training.png)
+## Training profile
+   ![sample training](fig/mlp-training.png)
 
 
 ## Psychophysical performance Profile
-   ![Profile](fig/Profile.png)
+   ![Profile](fig/mlp-profile.png)
 
 ## Hiden units
    ![Hidden units](fig/HL.png)
@@ -44,11 +44,17 @@
 
 - *deepdigitperc_mlp.m* trains a MLP and profiles the entire deep model
   
-
-## Layer1
+## Unsupervised Layer 1
    sample DBN features at layer1![Layer1](fig/DN-L1.png)
 
-## Layer2
+## Unsupervised Layer 2
 sample DBN features at layer2  ![Layer2](fig/DN-L2.png)
+
+## MLP classifier training
+![dn training](fig/dn-training.png)
+
+## Psychophysical profile of Deep Net
+   ![Profile](fig/dn-profile.png)
+
 
 
