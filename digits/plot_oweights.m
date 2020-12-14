@@ -5,7 +5,7 @@ function plot_oweights(NN)
  set(h_fg,'Position',[100,1000,1500,200],'Renderer','zbuffer','Color',[1 1 1],'PaperPositionMode', 'auto');
  clim=2;                         		% Limits of color scale, to show more clearly the response patterns
  cthr=0.1;                         		% Plot as Zero any (absolute) weight-values bellow this threshold
- npl=NN.sz(3); nx=10; ny=npl/10; % How many images weight matrixes to show
+ npl=NN.lsize(3); nx=10; ny=npl/10; % How many images weight matrixes to show
  for i=1:npl,                    		% Cycle over every hidden unit
    subplot(ny,nx,i);             		% Divide the figure into [nx x ny] subplots and selects subplot-with-index i
    w=NN.hw*NN.ow(:,i);                  % The weight matrix of unit i as a vector
