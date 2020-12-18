@@ -5,7 +5,7 @@
 
 function N = mlp_train(N,X,T,epochs)
   ntr=size(X,1);                % Number of training patterns
-  nba=ceil(ntr*N.par.batchfr);  % Number of training samples per batch
+  nba=N.par.batch;              % Number of training samples per batch
   E = zeros(epochs,1);          % Container for the error
 
   for i= 1:epochs               % iterative training

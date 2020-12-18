@@ -19,6 +19,7 @@ N.W=cell(nlayers,1);            % empty cell array - holder for weights
 N.gB=cell(nlayers,1);           % empty cell array - holder for generative biases
 N.B=cell(nlayers,1);           	% empty cell array - holder for biases
 N.actfun='sig';                 % activation function
+N.History={};                   % History of manipulations
 
 for l=2:N.nlayers               % Init all weights and biases, starting from the 2nd layer
   ninputs=lsize(l-1);           % the size of the input of this layer
